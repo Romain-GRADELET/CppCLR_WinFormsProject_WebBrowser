@@ -131,12 +131,12 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->textBox1->Location = System::Drawing::Point(12, 34);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(857, 20);
+			this->textBox1->Size = System::Drawing::Size(719, 20);
 			this->textBox1->TabIndex = 1;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(875, 32);
+			this->button1->Location = System::Drawing::Point(737, 32);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(107, 23);
 			this->button1->TabIndex = 2;
@@ -155,21 +155,23 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(988, 32);
+			this->button2->Location = System::Drawing::Point(850, 32);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(58, 23);
 			this->button2->TabIndex = 4;
 			this->button2->Text = L"<";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(1052, 32);
+			this->button3->Location = System::Drawing::Point(914, 32);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(58, 23);
 			this->button3->TabIndex = 4;
 			this->button3->Text = L">";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Form1::button3_Click);
 			// 
 			// Form1
 			// 
@@ -185,7 +187,6 @@ namespace CppCLRWinFormsProject {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1";
 			this->Text = L"WebBrowser";
-			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -213,5 +214,15 @@ namespace CppCLRWinFormsProject {
 		this->webBrowser1->Navigate(this->textBox1->Text);
 	}
 
+	// Back & Forward button
+	// Back
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->webBrowser1->GoBack();
+	}
+
+	// Forward 
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->webBrowser1->GoForward();
+	}
 };
 }
